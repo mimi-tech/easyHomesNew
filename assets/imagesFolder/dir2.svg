@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="131" height="46" viewBox="0 0 131 46">
+  <g id="Group_2657" data-name="Group 2657" transform="translate(-180 -372)">
+    <path id="Rectangle_1955" data-name="Rectangle 1955" d="M0,0H111a20,20,0,0,1,20,20v6a20,20,0,0,1-20,20H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(180 372)" fill="#045c76"/>
+    <text id="Direction" transform="translate(211 402)" fill="#fff" font-size="20" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">Direction</tspan></text>
+    <path id="map-location" d="M25.593,2.984a10.186,10.186,0,0,0-14.406,0c-3.561,3.56-4,10.258-.958,14.317L18.39,29.087l8.149-11.77C29.6,13.242,29.153,6.544,25.593,2.984ZM18.484,13.811A3.718,3.718,0,1,1,22.2,10.093,3.723,3.723,0,0,1,18.484,13.811Z" transform="translate(179.776 380.782)" fill="#fff"/>
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="111" height="35" viewBox="0 0 111 35">
+  <g id="Group_2647" data-name="Group 2647" transform="translate(7555 -8686)">
+    <g id="Rectangle_2039" data-name="Rectangle 2039" transform="translate(-7555 8686)" stroke="#707070" stroke-width="0.5">
+      <path d="M3,0H111a0,0,0,0,1,0,0V35a0,0,0,0,1,0,0H3a3,3,0,0,1-3-3V3A3,3,0,0,1,3,0Z" stroke="none"/>
+      <path d="M3,.25H110.5a.25.25,0,0,1,.25.25v34a.25.25,0,0,1-.25.25H3A2.75,2.75,0,0,1,.25,32V3A2.75,2.75,0,0,1,3,.25Z" fill="none"/>
+    </g>
+    <text id="A-Z" transform="translate(-7502 8708)" fill="#fff" font-size="14" font-family="SegoeUI, Segoe UI"><tspan x="-11.307" y="0">A-Z</tspan></text>
+  </g>
+</svg>

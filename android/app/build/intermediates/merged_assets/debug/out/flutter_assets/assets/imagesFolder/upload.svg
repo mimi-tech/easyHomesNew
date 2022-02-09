@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="172" height="64" viewBox="0 0 172 64">
+  <defs>
+    <filter id="Rectangle_1968" x="0" y="0" width="172" height="64" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_2652" data-name="Group 2652" transform="translate(-178 -208)">
+    <g transform="matrix(1, 0, 0, 1, 178, 208)" filter="url(#Rectangle_1968)">
+      <rect id="Rectangle_1968-2" data-name="Rectangle 1968" width="154" height="46" rx="5" transform="translate(9 6)" fill="#2e7184"/>
+    </g>
+    <path id="plus_1_" data-name="plus (1)" d="M17.759,8.009h-5.92a.348.348,0,0,1-.348-.348V1.741a1.741,1.741,0,0,0-3.482,0v5.92a.348.348,0,0,1-.348.348H1.741a1.741,1.741,0,0,0,0,3.482h5.92a.348.348,0,0,1,.348.348v5.92a1.741,1.741,0,1,0,3.482,0v-5.92a.348.348,0,0,1,.348-.348h5.92a1.741,1.741,0,1,0,0-3.482Zm0,0" transform="translate(191.5 227)" fill="#fff"/>
+    <g id="Group_2651" data-name="Group 2651">
+      <text id="Upload_licence" data-name="Upload licence" transform="translate(275 242)" fill="#fff" font-size="18" font-family="SegoeUI, Segoe UI"><tspan x="-58.452" y="0">Upload licence</tspan></text>
+    </g>
+  </g>
+</svg>

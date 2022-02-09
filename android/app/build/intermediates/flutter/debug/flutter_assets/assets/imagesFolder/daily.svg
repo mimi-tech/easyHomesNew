@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="65" height="18" viewBox="0 0 65 18">
+  <g id="Group_2456" data-name="Group 2456" transform="translate(-150 -105)">
+    <g id="Rectangle_1991" data-name="Rectangle 1991" transform="translate(150 105)" fill="rgba(245,115,11,0.1)" stroke="#f5730b" stroke-width="0.1">
+      <rect width="65" height="18" rx="5" stroke="none"/>
+      <rect x="0.05" y="0.05" width="64.9" height="17.9" rx="4.95" fill="none"/>
+    </g>
+    <g id="Group_2454" data-name="Group 2454" transform="translate(150 109)">
+      <g id="Group_2455" data-name="Group 2455">
+        <g id="menu_1_" data-name="menu (1)" transform="translate(43.566 4.412)">
+          <g id="arrow-drop-down">
+            <path id="Path_3012" data-name="Path 3012" d="M0,63.75l3.588,3.588L7.177,63.75Z" transform="translate(0 -63.75)" fill="#f5730b"/>
+          </g>
+        </g>
+        <text id="Daily" transform="translate(11 9)" fill="#f5730b" font-size="12" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">Daily</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

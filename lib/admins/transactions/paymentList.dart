@@ -1,0 +1,229 @@
+import 'dart:convert';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_homes/admins/constructors/error.dart';
+import 'package:easy_homes/admins/pages/page_constants.dart';
+import 'package:easy_homes/admins/transactions/transAppbar.dart';
+import 'package:easy_homes/admins/transactions/trans_construct.dart';
+import 'package:easy_homes/admins/transactions/trans_list_sliversappbar.dart';
+import 'package:easy_homes/colors/colors.dart';
+import 'package:easy_homes/dimes/dimen.dart';
+import 'package:easy_homes/reg/constants/variables.dart';
+import 'package:easy_homes/reg/constants/variables_0ne.dart';
+
+import 'package:easy_homes/utility/text.dart';
+import 'package:easy_homes/utils/loading.dart';
+import 'package:easy_homes/utils/read_more.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+import 'package:http/http.dart' as http;
+
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+class AllPaymentTrans extends StatefulWidget {
+  @override
+  _AllPaymentTransState createState() => _AllPaymentTransState();
+}
+
+class _AllPaymentTransState extends State<AllPaymentTrans>with TickerProviderStateMixin{
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    getPaymentList();
+    getpaymentListFlutterWave();
+
+    PageConstants.searchController.addListener(() {
+      setState(() {
+        filter = PageConstants.searchController.text;
+      });
+    });
+  }
+  String? filter;
+
+  List<dynamic> listsEmail = <dynamic>[];
+  List<dynamic> listsChannel = <dynamic>[];
+  List<dynamic> listsAmount = <dynamic>[];
+  List<dynamic> listsGateway = <dynamic>[];
+
+  List<dynamic> listsStatus = <dynamic>[];
+  List<dynamic> listsDate = <dynamic>[];
+  List<dynamic> listsMobile = <dynamic>[];
+  List<dynamic> listsName = <dynamic>[];
+
+
+  bool progress = false;
+  bool progressError = false;
+  var date = '${DateTime.now().year}-${DateTime.now().month}-${DateTime.now().day}';
+
+   Map? myMap;
+  late Map<String,dynamic> jsonDecoded;
+
+Widget bodyList(int index){
+  //DateTime currentPhoneDate = DateTime.now(); //DateTime
+
+  /*for(int i= 0; i < listsDate.length; i++) {
+
+    Timestamp myTimeStamp = listsDate[i]; //To TimeStamp
+
+    DateTime myDateTime = myTimeStamp.toDate(); // TimeStamp to DateTime
+
+    var d = DateFormat('d MMM, yyyy').format(myDateTime);
+    listsDateTime.add(d);
+    print("current phone data is: $myDateTime");
+
+  }
+*/
+
+
+  return  Column(
+    children: [
+      TransConstruction(
+        email: listsEmail[index],
+        channel: listsChannel[index],
+        status: listsStatus[index],
+        name: listsName[index],
+        amount: listsAmount[index],
+        gateWay: listsGateway[index],
+        date: listsDate[index],//listsDateTime[index],
+        mobile: listsMobile[index],
+
+      ),
+    ],
+  );
+}
+
+  @override
+  Widget build(BuildContext context) {
+    return  SafeArea(child: Scaffold(
+       appBar:TransAppBar(title: 'Transaction List',),
+
+        body:CustomScrollView(slivers: <Widget>[
+          SilverAppBarTransList(
+          tutorialColor: kWhiteColor,
+          eventsColor: kCartoonColor,
+          expertColor: kCartoonColor,
+          coursesColor: kCartoonColor,
+          publishColor: kCartoonColor,
+        ),
+
+        SliverList(
+            delegate: SliverChildListDelegate([
+
+
+        progress?Center(child: PlatformCircularProgressIndicator()):
+
+       Column(
+        children: [
+          ListView.builder(
+        physics: BouncingScrollPhysics(),
+        shrinkWrap: true,
+        itemCount: listsEmail.length, itemBuilder: (context, int index) {
+
+
+        return filter == null || filter == "" ?bodyList(index):
+        '${listsEmail[index]}'.toLowerCase()
+            .contains(filter!.toLowerCase())
+
+            ?bodyList(index):Container();
+    })
+    ],
+      ),
+
+
+    ]
+    )
+    )
+        ]
+    ))
+    );
+  }
+
+  Future<void> getPaymentList() async {
+    setState(() {
+      progress = true;
+      listsEmail.clear();
+      listsStatus.clear();
+      listsGateway.clear();
+      listsChannel.clear();
+      listsDate.clear();
+      listsMobile.clear();
+      listsName.clear();
+
+    });
+
+    http.Response res = await http.get(Uri.parse('https://api.paystack.co/transaction?perpage=${int.parse('50')}'),
+        headers: {VariablesOne.authorizationBearer: 'Bearer ${Variables.cloud!['sk']}'});
+    //headers:{"Authorization: Bearer"});
+
+    if (res.statusCode == 200) {
+
+      jsonDecoded = jsonDecode(res.body);
+      //print(jsonDecoded['data']['channel']);
+      var videos = jsonDecoded['data'];
+
+      for (var item in videos){ //iterate over the list
+        myMap = item;
+    setState(() {
+  listsEmail.add(myMap!['customer']['email']);
+  listsAmount.add(myMap!['amount']);
+  listsStatus.add(myMap!['status']);
+  listsGateway.add(myMap!['gateway_response']);
+  listsChannel.add(myMap!['channel']);
+  listsDate.add(myMap!['created_at']);
+  listsMobile.add(myMap!['customer']['phone']);
+  listsName.add(myMap!['customer']['first_name']);
+
+});
+
+
+      }
+
+      //get all transaction from flutterWave
+
+
+    }else{
+
+  }}
+
+  Future<void> getpaymentListFlutterWave() async {
+    http.Response res = await http.get( Uri.parse('https://api.flutterwave.com/v3/transactions?from=2020-12-01&to=$date'),
+        headers: {VariablesOne.authorizationBearer: 'Bearer ${Variables.cloud!['fsk']}'});
+    //headers:{"Authorization: Bearer"});
+
+    if (res.statusCode == 200) {
+      setState(() {
+        progress = false;
+      });
+      jsonDecoded = jsonDecode(res.body);
+
+      //print(jsonDecoded['data']['channel']);
+      var videos = jsonDecoded['data'];
+
+      for (var item in videos){ //iterate over the list
+        myMap = item;
+        setState(() {
+          listsEmail.add(myMap!['customer']['email']);
+          listsAmount.add(myMap!['amount']);
+          listsStatus.add(myMap!['status']);
+          listsGateway.add(myMap!['processor_response']);
+          listsChannel.add(myMap!['payment_type']);
+          listsDate.add(myMap!['created_at']);
+          listsMobile.add(myMap!['customer']['phone_number']);
+          listsName.add(myMap!['customer']['name']);
+
+
+        });
+
+      }
+  }else{
+      setState(() {
+        progress = false;
+        //progressError = true;
+      });
+      print(res.statusCode);
+      print(res);
+      print('failed request');
+        }
+}}

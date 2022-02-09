@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="137" height="46" viewBox="0 0 137 46">
+  <defs>
+    <filter id="Rectangle_2136" x="0" y="0" width="137" height="46" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feFlood flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_2780" data-name="Group 2780" transform="translate(-64 -501)">
+    <g transform="matrix(1, 0, 0, 1, 64, 501)" filter="url(#Rectangle_2136)">
+      <g id="Rectangle_2136-2" data-name="Rectangle 2136" transform="translate(3 2)" fill="#b1fff1" stroke="#000" stroke-width="0.5">
+        <rect width="131" height="40" rx="5" stroke="none"/>
+        <rect x="0.25" y="0.25" width="130.5" height="39.5" rx="4.75" fill="none"/>
+      </g>
+    </g>
+    <text id="Transfer_Cash" data-name="Transfer Cash" transform="translate(133 528)" font-size="15" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="-47.205" y="0">Transfer Cash</tspan></text>
+  </g>
+</svg>

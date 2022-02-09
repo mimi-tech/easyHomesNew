@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="122" height="24" viewBox="0 0 122 24">
+  <g id="Group_2647" data-name="Group 2647" transform="translate(7408 -9479)">
+    <g id="Rectangle_2089" data-name="Rectangle 2089" transform="translate(-7408 9479)" fill="#fff" stroke="#707070" stroke-width="0.1">
+      <rect width="122" height="24" stroke="none"/>
+      <rect x="0.05" y="0.05" width="121.9" height="23.9" fill="none"/>
+    </g>
+    <g id="Group_2619" data-name="Group 2619" transform="translate(-7435 9155)">
+      <text id="OUT" transform="translate(83 340)" fill="#045c76" font-size="13" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">OUT</tspan></text>
+      <circle id="Ellipse_155" data-name="Ellipse 155" cx="4.5" cy="4.5" r="4.5" transform="translate(68 331)" fill="#a59f9f"/>
+    </g>
+  </g>
+</svg>

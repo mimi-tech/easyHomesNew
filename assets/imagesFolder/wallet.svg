@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="128" height="46" viewBox="0 0 128 46">
+  <defs>
+    <filter id="Rectangle_1984" x="0" y="0" width="128" height="46" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_2471" data-name="Group 2471" transform="translate(-208 -282)">
+    <g transform="matrix(1, 0, 0, 1, 208, 282)" filter="url(#Rectangle_1984)">
+      <g id="Rectangle_1984-2" data-name="Rectangle 1984" transform="translate(9 6)" fill="rgba(245,115,11,0.1)" stroke="#707070" stroke-width="0.1">
+        <rect width="110" height="28" rx="14" stroke="none"/>
+        <rect x="0.05" y="0.05" width="109.9" height="27.9" rx="13.95" fill="none"/>
+      </g>
+    </g>
+    <text id="WITHDRAW" transform="translate(225 306)" fill="#ff6c00" font-size="12" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">WITHDRAW</tspan></text>
+    <g id="next" transform="translate(300.706 253.654)">
+      <g id="Group_2448" data-name="Group 2448" transform="translate(0 41.346)">
+        <path id="Path_3009" data-name="Path 3009" d="M16.038,47.492l-5.886-5.886a.895.895,0,0,0-1.262,0l-.534.535a.885.885,0,0,0-.26.631.9.9,0,0,0,.26.638l3.434,3.441H.881A.87.87,0,0,0,0,47.728v.756a.9.9,0,0,0,.881.916H11.829L8.356,52.86a.883.883,0,0,0,0,1.253l.534.533a.895.895,0,0,0,1.262,0l5.886-5.886a.9.9,0,0,0,0-1.266Z" transform="translate(0 -41.346)" fill="#ff6c00"/>
+      </g>
+    </g>
+  </g>
+</svg>

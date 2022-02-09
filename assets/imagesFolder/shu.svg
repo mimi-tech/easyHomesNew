@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="119" height="24" viewBox="0 0 119 24">
+  <g id="Group_2648" data-name="Group 2648" transform="translate(7286 -9479)">
+    <g id="Rectangle_2050" data-name="Rectangle 2050" transform="translate(-7286 9479)" fill="#fff" stroke="#707070" stroke-width="0.1">
+      <rect width="119" height="24" stroke="none"/>
+      <rect x="0.05" y="0.05" width="118.9" height="23.9" fill="none"/>
+    </g>
+    <text id="SCHEDULED" transform="translate(-7265 9495)" fill="#045c76" font-size="13" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">SCHEDULED</tspan></text>
+  </g>
+</svg>

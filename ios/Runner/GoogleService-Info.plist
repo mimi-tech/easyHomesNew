@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>409713915692-d0ko2tutjmuk0b83bfutiqgcs3sbsh5l.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.409713915692-d0ko2tutjmuk0b83bfutiqgcs3sbsh5l</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>409713915692-jra923341hp3029gs7gd8ail9gjp9rp8.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDpf0ctX0fV-sNKT2OM_BR89YJY5jQUMfQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>409713915692</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.easyhomes247.easyHomes</string>
+	<key>PROJECT_ID</key>
+	<string>easyhomes-626df</string>
+	<key>STORAGE_BUCKET</key>
+	<string>easyhomes-626df.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:409713915692:ios:d610473bc6b135f7f4de89</string>
+	<key>DATABASE_URL</key>
+	<string>https://easyhomes-626df.firebaseio.com</string>
+</dict>
+</plist>

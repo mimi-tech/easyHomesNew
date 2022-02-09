@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="137" height="46" viewBox="0 0 137 46">
+  <defs>
+    <filter id="Rectangle_2135" x="0" y="0" width="137" height="46" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feFlood flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_2779" data-name="Group 2779" transform="translate(-63 -350)">
+    <g transform="matrix(1, 0, 0, 1, 63, 350)" filter="url(#Rectangle_2135)">
+      <g id="Rectangle_2135-2" data-name="Rectangle 2135" transform="translate(3 2)" fill="#b7f0ff" stroke="#000" stroke-width="0.5">
+        <rect width="131" height="40" rx="5" stroke="none"/>
+        <rect x="0.25" y="0.25" width="130.5" height="39.5" rx="4.75" fill="none"/>
+      </g>
+    </g>
+    <text id="Fund_Wallet" data-name="Fund Wallet" transform="translate(132 377)" font-size="15" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="-42.198" y="0">Fund Wallet</tspan></text>
+  </g>
+</svg>

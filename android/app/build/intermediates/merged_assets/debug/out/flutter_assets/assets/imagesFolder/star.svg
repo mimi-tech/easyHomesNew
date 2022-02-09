@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="49" viewBox="0 0 54 49">
+  <defs>
+    <filter id="Rectangle_1950" x="0" y="0" width="54" height="49" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_2294" data-name="Group 2294" transform="translate(-105 -478)">
+    <g transform="matrix(1, 0, 0, 1, 105, 478)" filter="url(#Rectangle_1950)">
+      <rect id="Rectangle_1950-2" data-name="Rectangle 1950" width="36" height="31" rx="12" transform="translate(9 6)" fill="#f5730b"/>
+    </g>
+    <g id="Group_1999" data-name="Group 1999" transform="translate(14.516 -1110.621)">
+      <g id="star-24px" transform="translate(104.559 1597.155)">
+        <path id="Path_2136" data-name="Path 2136" d="M0,0H26.711V26.711H0Z" fill="none"/>
+        <path id="Path_2137" data-name="Path 2137" d="M12.017,16.759l6.19,3.605-1.643-6.795L22.034,9l-7.2-.59L12.017,2,9.2,8.408,2,9l5.469,4.572L5.826,20.364Z" transform="translate(1.339 1.339)" fill="#fff"/>
+        <path id="Path_2138" data-name="Path 2138" d="M0,0H26.711V26.711H0Z" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>
