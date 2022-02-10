@@ -24,7 +24,7 @@ import 'package:intl/intl.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server.dart';
 import 'package:mailer/smtp_server/gmail.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 //import 'package:telephony/telephony.dart';
 class SuccessFulScreen extends StatefulWidget {
   @override
@@ -52,7 +52,7 @@ class _SuccessFulScreenState extends State<SuccessFulScreen> {
   bool _publishModal = false;
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: PlatformScaffold(body: ModalProgressHUD(
+    return SafeArea(child: PlatformScaffold(body: ProgressHUDFunction(
       inAsyncCall: _publishModal,
       child: SingleChildScrollView(
         child: Container(

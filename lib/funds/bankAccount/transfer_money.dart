@@ -23,7 +23,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:rxdart/rxdart.dart';
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =

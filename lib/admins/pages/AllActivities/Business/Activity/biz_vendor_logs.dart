@@ -19,7 +19,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:jiffy/jiffy.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 
 class BizVendorLogs extends StatefulWidget {
   @override

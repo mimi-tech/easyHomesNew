@@ -18,7 +18,7 @@ import 'package:easy_homes/work/stations/confirm_gas_station.dart';
 import 'package:easy_homes/work/vendor_office.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
 
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 
 import 'package:easy_homes/utility/second_screen.dart';
 import 'package:easy_homes/strings/strings.dart';
@@ -105,7 +105,7 @@ late StreamSubscription streaming;
           backgroundColor: kBlackColor,
           body: progress == true
               ? Center(child: PlatformCircularProgressIndicator())
-              : ModalProgressHUD(
+              : ProgressHUDFunction(
             inAsyncCall: _publishModal,
             child: SingleChildScrollView(
               child: Column(

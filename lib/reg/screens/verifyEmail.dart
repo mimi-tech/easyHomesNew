@@ -95,7 +95,7 @@ class _VerifyEmailAddressState extends State<VerifyEmailAddress> with TickerProv
     return PinPut(
 
       autofocus: true,
-      validator: Variables.validatePin,
+      //validator: Variables.validatePin,
       obscureText: '*',
       fieldsCount: 6,
       eachFieldHeight: 20,

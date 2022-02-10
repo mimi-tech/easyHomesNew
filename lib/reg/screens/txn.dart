@@ -55,7 +55,7 @@ class _TxnScreenState extends State<TxnScreen> {
     return PinPut(
 
       autofocus: true,
-      validator: Variables.validatePin,
+      //validator: Variables.validatePin,
       obscureText: '*',
       fieldsCount: 6,
       eachFieldHeight: 20,
@@ -89,7 +89,7 @@ class _TxnScreenState extends State<TxnScreen> {
     return PinPut(
 
       autofocus: true,
-      validator: Variables.validatePin,
+      //validator: Variables.validatePin,
       obscureText: '*',
       fieldsCount: 6,
       eachFieldHeight: 20,

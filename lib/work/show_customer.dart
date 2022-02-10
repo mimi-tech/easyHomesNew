@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:easy_homes/reg/constants/constant_1.dart';
 import 'package:easy_homes/reg/constants/variables_0ne.dart';
 import 'package:easy_homes/utils/money_format.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 import 'package:easy_homes/utils/read_more.dart';
 import 'package:flutter/foundation.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -26,7 +27,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wakelock/wakelock.dart';
@@ -146,7 +146,7 @@ bool _publishModal = false;
   Widget build(BuildContext context) {
     return SafeArea(child: PlatformScaffold(
 
-      body: ModalProgressHUD(
+      body: ProgressHUDFunction(
         inAsyncCall: _publishModal,
         child: WillPopScope(
           onWillPop: () => Future.value(false),

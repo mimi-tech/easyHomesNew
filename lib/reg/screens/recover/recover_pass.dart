@@ -16,7 +16,7 @@ import 'package:easy_homes/dimes/dimen.dart';
 import 'package:easy_homes/reg/constants/animation_text.dart';
 import 'package:easy_homes/reg/constants/btn.dart';
 import 'package:flutter/services.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:easy_homes/reg/constants/fonts.dart';

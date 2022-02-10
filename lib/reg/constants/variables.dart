@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_homes/colors/colors.dart';
 import 'package:easy_homes/dimes/dimen.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:geocoder/geocoder.dart';
+import 'package:geoflutterfire/geoflutterfire.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -841,7 +841,7 @@ suffixIcon:  GestureDetector(
  );
 
 
- static String? validatePin(String value) {
+ static String validatePin(String value) {
    if(value.isEmpty) {
      return "Pin can't be empty";
    }
@@ -851,7 +851,7 @@ suffixIcon:  GestureDetector(
    if(value.length > 6) {
      return "Pin must be less than 6 numbers";
    }
-   return null;
+  return "";
  }
 
 

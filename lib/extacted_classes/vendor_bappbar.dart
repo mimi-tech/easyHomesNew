@@ -4,7 +4,6 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:custom_switch/custom_switch.dart';
 import 'package:easy_homes/colors/colors.dart';
 import 'package:easy_homes/dashboard/vendor/upcoming_bookings.dart';
 
@@ -16,6 +15,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
 import 'package:intl/intl.dart';
 import 'package:location/location.dart';
@@ -84,10 +84,10 @@ late  Timer _timer;
 
 
 
-              CustomSwitch(
+              FlutterSwitch(
                 activeColor: kGreenColor,
                 value: status,
-                onChanged: (value) async {
+                onToggle: (value) async {
 
                   setState(() {
                     status = value;

@@ -28,7 +28,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_sms/flutter_sms.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 import 'package:page_transition/page_transition.dart';
 
 
@@ -82,7 +82,7 @@ late int count;
     return PinPut(
 
       autofocus: true,
-      validator: Variables.validatePin,
+      //validator: Variables.validatePin,
       obscureText: '*',
       fieldsCount: 6,
       eachFieldHeight: 20,
@@ -116,7 +116,7 @@ bool _publishModal = false;
     return SafeArea(child: PlatformScaffold(
 
 
-        body: ModalProgressHUD(
+        body: ProgressHUDFunction(
           inAsyncCall: _publishModal,
           child: SingleChildScrollView(
             child: Column(

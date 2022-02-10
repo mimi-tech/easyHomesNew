@@ -29,7 +29,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:sticky_headers/sticky_headers.dart';
 

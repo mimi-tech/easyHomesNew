@@ -1,6 +1,3 @@
-// @dart = 2.9
-
-
 import 'package:easy_homes/admins/admin_constants.dart';
 import 'package:easy_homes/admins/partners/register_business.dart';
 import 'package:easy_homes/colors/colors.dart';
@@ -12,8 +9,8 @@ import 'package:easy_homes/vendorReg/screens/store_address.dart';
 import 'package:easy_homes/vendorReg/vendor_constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:geoflutterfire/geoflutterfire.dart';
 
-import 'package:geocoder/geocoder.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_place_picker/google_maps_place_picker.dart';
@@ -25,7 +22,7 @@ class VendorLocationService extends StatefulWidget {
 }
 
 class _VendorLocationServiceState extends State<VendorLocationService> {
-  PickResult selectedPlace;
+  PickResult? selectedPlace;
   static final kInitialPosition = LatLng(-33.8567844, 151.213108);
   bool progress = false;
   @override
@@ -47,7 +44,7 @@ class _VendorLocationServiceState extends State<VendorLocationService> {
             children: <Widget>[
             NewBtn(title: kGetAddress,bgColor:kDoneColor,nextFunction: (){ _searchAddress();
           },),
-              selectedPlace == null ? Container() : Text(selectedPlace.formattedAddress ?? ""),
+              selectedPlace == null ? Container() : Text(selectedPlace!.formattedAddress ?? ""),
             ],
           ),
         ));
@@ -68,30 +65,36 @@ class _VendorLocationServiceState extends State<VendorLocationService> {
             onPlacePicked: (result) async {
 
               selectedPlace = result;
-              var d = result.addressComponents.first;
+              var d = result.addressComponents!.first;
 
-              print(d.toJson());
 
 
               try{
-                var addresses = await Geocoder.local.findAddressesFromQuery(selectedPlace.formattedAddress);
+                List<Location> addresses = await locationFromAddress(selectedPlace!.formattedAddress.toString());
+
+                //var addresses = await Geocoder.local.findAddressesFromQuery(selectedPlace.formattedAddress);
                 //final coordinates = new Coordinates(placeMark.latitude, placeMark.longitude);
                 //var addresses = await Geocoder.local.findAddressesFromCoordinates(coordinates);
-                var first = addresses.first;
+
+
+                List<Placemark> placeMarks = await placemarkFromCoordinates(addresses.first.latitude, addresses.first.longitude);
+                var first = placeMarks.first;
                 // this is all you need
 
-                String name = first.toString();
-                String subLocality = first.subLocality;
-                String locality = first.locality;//Owerri
-                String administrativeArea = first.adminArea;//Imo
-                String postalCode= first.postalCode;
-                String country = first.countryName;//country
-                String hdh= first.subThoroughfare;//no
-                String ns = first.thoroughfare;//egbu Road
-                Coordinates position = first.coordinates;
-                Variables.latPosition = position;
-                //String address = "$subLocality $ns $hdh $locality $administrativeArea state, $country";
-                String address = selectedPlace.formattedAddress;
+                String? name = first.name;
+                String? subLocality = first.subLocality;
+                String? locality = first.locality;//Owerri
+                String? administrativeArea = first.administrativeArea;//Imo
+                String? country = first.country;//country
+                String? hdh= first.subThoroughfare;//no
+                String? ns = first.thoroughfare;//egbu Road
+
+                //Coordinates position = first.;
+                final coordinates = new Coordinates(addresses.first.latitude, addresses.first.longitude);
+
+                Variables.latPosition = coordinates;
+                String address = "$subLocality $ns $hdh $locality $administrativeArea state, $country";
+                //String address = selectedPlace.formattedAddress;
 
 
 
@@ -112,11 +115,11 @@ class _VendorLocationServiceState extends State<VendorLocationService> {
                   Variables.locality = locality;
                   Variables.administrative = administrativeArea;
                   Variables.country = country;
-                  VendorConstants.vendorSearchLocation = selectedPlace.formattedAddress;
+                  VendorConstants.vendorSearchLocation = selectedPlace!.formattedAddress;
                   AdminConstants.businessSubLocation = ns;
 
-                  AdminConstants.lat = position.latitude;
-                  AdminConstants.log = position.longitude;
+                  AdminConstants.lat = addresses.first.latitude;
+                  AdminConstants.log = addresses.first.longitude;
 
                   //update _address
                 });

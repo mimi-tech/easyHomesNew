@@ -34,7 +34,7 @@ import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -160,7 +160,7 @@ class _StoredWithdrawalDetailsState extends State<StoredWithdrawalDetails> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: PlatformScaffold(body: ModalProgressHUD(
+    return SafeArea(child: PlatformScaffold(body: ProgressHUDFunction(
       inAsyncCall: _publishModal,
       child: SingleChildScrollView(
         child: Container(

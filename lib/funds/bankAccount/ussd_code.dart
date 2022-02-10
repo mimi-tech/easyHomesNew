@@ -20,7 +20,7 @@ import 'package:easy_homes/utility/text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -132,7 +132,7 @@ class _USSDCodeState extends State<USSDCode> {
     return SafeArea(
       child: Scaffold(
         appBar: CardAppBar(),
-        body: ModalProgressHUD(
+        body: ProgressHUDFunction(
           inAsyncCall: _publishModal,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,

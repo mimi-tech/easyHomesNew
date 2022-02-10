@@ -35,7 +35,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server/gmail.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 import 'package:page_transition/page_transition.dart';
 //import 'package:telephony/telephony.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -87,7 +87,7 @@ bool _publishModal= false;
 
           appBar:SearchBottomAdminAppBar(title: 'Transaction Pin'.toUpperCase(),),
 
-          body:ModalProgressHUD(
+          body:ProgressHUDFunction(
             inAsyncCall: _publishModal,
             child: CustomScrollView(
                 slivers: <Widget>[

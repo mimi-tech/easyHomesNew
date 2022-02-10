@@ -20,7 +20,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 import 'package:url_launcher/url_launcher.dart';
 class SupportScreen extends StatefulWidget {
   @override
@@ -72,7 +72,7 @@ class _SupportScreenState extends State<SupportScreen> {
             ],
           ),
         ),
-        body: ModalProgressHUD(
+        body: ProgressHUDFunction(
           inAsyncCall: _publishModal,
           child: SingleChildScrollView(child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

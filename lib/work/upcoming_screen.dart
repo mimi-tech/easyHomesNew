@@ -23,7 +23,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 import 'package:rxdart/rxdart.dart';
 
 
@@ -209,7 +209,7 @@ getMusic();
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(body: ModalProgressHUD(
+    return SafeArea(child: Scaffold(body: ProgressHUDFunction(
       inAsyncCall: progress,
       child: WillPopScope(
         onWillPop: () => Future.value(false),

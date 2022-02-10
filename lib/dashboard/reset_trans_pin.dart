@@ -55,7 +55,7 @@ class _ResetTransactionPinState extends State<ResetTransactionPin> {
     return PinPut(
 
       autofocus: true,
-      validator: Variables.validatePin,
+      //validator: Variables.validatePin,
       obscureText: '*',
       fieldsCount: 6,
       eachFieldHeight: 20,

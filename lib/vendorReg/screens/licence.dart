@@ -20,7 +20,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_cropper/image_cropper.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 import 'package:page_transition/page_transition.dart';
 class VendorLicence extends StatefulWidget {
   @override
@@ -50,7 +50,7 @@ class _VendorLicenceState extends State<VendorLicence> {
   Widget build(BuildContext context) {
     return SafeArea(child: PlatformScaffold(body:
 
-   ModalProgressHUD(
+   ProgressHUDFunction(
      inAsyncCall: _publishModal,
      child: SingleChildScrollView(
        child: Container(

@@ -31,7 +31,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
 
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -178,7 +178,7 @@ if(subscription != null){
 
     return SafeArea(child: Scaffold(
 
-        body: ModalProgressHUD(
+        body: ProgressHUDFunction(
             inAsyncCall: _publishModal,
             child: SingleChildScrollView(
                 child:

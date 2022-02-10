@@ -19,7 +19,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 import 'package:mailer/mailer.dart';
 
 
@@ -54,7 +54,7 @@ class _EasySendMessageState extends State<EasySendMessage> {
     onPressed: () {Navigator.pop(context);}),
           title: LogoDesign(),
         ),
-        body: ModalProgressHUD(
+        body: ProgressHUDFunction(
       inAsyncCall: _publishModal,
       child: SingleChildScrollView(
         child: Container(

@@ -32,7 +32,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:jiffy/jiffy.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -119,7 +119,7 @@ class _EasySuspendedVendorState extends State<EasySuspendedVendor> {
             appBar:CancelAppBar(
 
               title: 'Suspended vendors'.toUpperCase(),),
-            body: ModalProgressHUD(
+            body: ProgressHUDFunction(
               inAsyncCall: _publishModal,
               color: kDoneColor,
               child: CustomScrollView(

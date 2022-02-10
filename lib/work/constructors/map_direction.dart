@@ -9,7 +9,7 @@ import 'package:easy_homes/strings/strings.dart';
 import 'package:easy_homes/utility/text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:geocoder/geocoder.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MapDirection extends StatefulWidget {
@@ -128,15 +128,15 @@ class _MapDirectionState extends State<MapDirection> {
 try{
   // From a query
   final query = Variables.transit!['ga'];
-  var addresses = await Geocoder.local.findAddressesFromQuery(query);
+  List<Location> addresses = await locationFromAddress(query);
+
+  //var addresses = await Geocoder.local.findAddressesFromQuery(query);
   var first = addresses.first;
-  print("${first.featureName} : ${first.coordinates}");
 
 
-  String origin =
-      '${Variables.itemsData[0]['la']},${Variables.itemsData[0]['la']}'; // lat,long like 123.34,68.56
+  String origin = '${Variables.itemsData[0]['la']},${Variables.itemsData[0]['la']}'; // lat,long like 123.34,68.56
   String destination =
-      "${first.coordinates.latitude},${first.coordinates.longitude}";
+      "${first.latitude},${first.longitude}";
 
   if (Platform.isAndroid) {
     final AndroidIntent intent = new AndroidIntent(

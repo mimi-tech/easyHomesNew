@@ -34,7 +34,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:easy_homes/utility/yesNo_btn.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -155,7 +155,7 @@ class _PartnerCompanySecState extends State<PartnerCompanySec> {
               rating: kWhiteColor,
             ),
             appBar:SearchEasyAppBar(),
-            body: ModalProgressHUD(
+            body: ProgressHUDFunction(
                 inAsyncCall: _publishModal,
                 child: CustomScrollView(
                     slivers: <Widget>[

@@ -4,7 +4,6 @@ import 'dart:io';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:custom_switch/custom_switch.dart';
 import 'package:easy_homes/extacted_classes/vendor_bappbar.dart';
 import 'package:easy_homes/extacted_classes/vendor_close_work.dart';
 import 'package:easy_homes/extacted_classes/vendor_map.dart';

@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 import 'package:readmore/readmore.dart';
 class CancelledUpcomingBookings extends StatefulWidget {
   @override
@@ -41,7 +41,7 @@ class _CancelledUpcomingBookingsState extends State<CancelledUpcomingBookings> {
             textWeight: FontWeight.bold,),
         ),
 
-        body: ModalProgressHUD(
+        body: ProgressHUDFunction(
           inAsyncCall: _publishModal,
           child: SingleChildScrollView(
               child: Column(

@@ -25,7 +25,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server.dart';
 import 'package:mailer/smtp_server/gmail.dart';
@@ -97,7 +97,7 @@ double _previousScale = 1.0;
             ],
           ),
         ),
-        body: ModalProgressHUD(
+        body: ProgressHUDFunction(
           inAsyncCall: _publishModal,
           child: CustomScrollView(slivers: <Widget>[
             ApplicantAppBar(

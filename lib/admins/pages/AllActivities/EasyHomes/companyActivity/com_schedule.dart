@@ -29,7 +29,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:sticky_headers/sticky_headers.dart';
 
@@ -368,7 +368,7 @@ class _CompanyScheduledScreenState extends State<CompanyScheduledScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    return ModalProgressHUD(
+    return ProgressHUDFunction(
       inAsyncCall: progress,
       child: AnimatedPadding(
         padding: MediaQuery.of(context).viewInsets,

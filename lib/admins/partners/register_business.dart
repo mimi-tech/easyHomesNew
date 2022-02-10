@@ -34,7 +34,7 @@ import 'package:http/http.dart' as http;
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 
 import 'package:page_transition/page_transition.dart';
 
@@ -103,7 +103,7 @@ class _RegisterBusinessState extends State<RegisterBusiness> {
                 ],
               ),
             ),
-            body: ModalProgressHUD(
+            body: ProgressHUDFunction(
               inAsyncCall: _publishModal,
 
               child: SingleChildScrollView(

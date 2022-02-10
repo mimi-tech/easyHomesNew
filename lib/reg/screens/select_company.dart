@@ -40,7 +40,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:typed_data';
 import 'dart:ui';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -173,7 +173,7 @@ class _SelectCompanyState extends State<SelectCompany> {
         child: Scaffold(
 
           // drawer: GasCompanyList(),
-            body: ModalProgressHUD(
+            body: ProgressHUDFunction(
               inAsyncCall: progress,
               child: SingleChildScrollView(
                 child: Column(

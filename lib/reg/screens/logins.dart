@@ -25,7 +25,7 @@ import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 import 'package:page_transition/page_transition.dart';
 class LoginScreen extends StatefulWidget {
   @override
@@ -44,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
 
-    return SafeArea(child: PlatformScaffold(body: ModalProgressHUD(
+    return SafeArea(child: PlatformScaffold(body: ProgressHUDFunction(
       inAsyncCall: _publishModal,
       child: SingleChildScrollView(
 

@@ -1,34 +1,34 @@
 
 import 'dart:io';
 
-import 'package:bot_toast/bot_toast.dart';
-import 'package:easy_homes/admins/admin_constants.dart';
 import 'package:easy_homes/colors/colors.dart';
-import 'package:easy_homes/dimes/dimen.dart';
-import 'package:easy_homes/reg/constants/btn.dart';
 import 'package:easy_homes/reg/constants/variables.dart';
 import 'package:easy_homes/reg/constants/variables_0ne.dart';
-import 'package:easy_homes/strings/strings.dart';
-import 'package:easy_homes/utility/splash.dart';
-import 'package:easy_homes/utility/text.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:easy_homes/reg/screens/home2.dart';
-import 'package:easy_homes/reg/screens/logins.dart';
+import 'package:easy_homes/utility/splash.dart';
+import 'package:easy_homes/utils/internet_connection.dart';
+import 'package:flutter/services.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-//import 'package:geocoding/geocoding.dart';
-//import 'package:geocoding/geocoding.dart';
+
 import 'package:geolocator/geolocator.dart';
-import 'package:location/location.dart';
 
 import 'dart:async';
+import 'dart:async';
+import 'dart:io';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:data_connection_checker/data_connection_checker.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:easy_homes/colors/colors.dart';
+import 'package:easy_homes/dimes/dimen.dart';
+import 'package:easy_homes/strings/strings.dart';
+import 'package:easy_homes/utility/text.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:location/location.dart';
+
 
 class PermissionScreen extends StatefulWidget {
   @override
@@ -37,7 +37,6 @@ class PermissionScreen extends StatefulWidget {
 
 class _PermissionScreenState extends State<PermissionScreen> {
 
-  late StreamSubscription<DataConnectionStatus> listener;
 
   var internetStatus = "Unknown";
   @override
@@ -52,19 +51,109 @@ class _PermissionScreenState extends State<PermissionScreen> {
 
     Future.delayed(const Duration(seconds: 4), ()
     {
-      checkData();
+      checkConnection();
     });
 
   }
+  StreamSubscription? _connectionChangeStream;
+
   final Geolocator _geolocator = Geolocator();
   int count = 1;
   @override
   void dispose() {
-    // TODO: implement dispose
+    InternetConnections().dispose();
     super.dispose();
-    listener.cancel();
   }
 bool progress = false;
+  bool isOffline = false;
+
+  void checkConnection(){
+
+    _connectionChangeStream = Connectivity().onConnectivityChanged.listen((ConnectivityResult result) async {
+      if(result != ConnectivityResult.none){
+        isOffline = await InternetConnectionChecker().hasConnection;
+        print("this is connection status $isOffline");
+        if(isOffline == true){
+        if(VariablesOne.firstEntering == true) {
+          Navigator.pop(context);
+        }else{
+          checkLocation();
+        }
+      }else{
+        //there is no internet show dialog to the user
+          setState(() {
+
+
+        VariablesOne.firstEntering = true;
+
+        showDialog(
+            barrierDismissible: false,
+            context: context,
+            builder:(context) => Platform.isIOS ?
+            CupertinoAlertDialog(
+              content:  Container(
+                margin: EdgeInsets.symmetric(horizontal: kHorizontal),
+                child: TextWidgetAlign(name: kNoInternet,
+                  textColor: kTextColor,
+                  textSize: kFontSize,
+                  textWeight: FontWeight.w500,),
+
+              ),
+
+              actions: <Widget>[
+                CupertinoButton(
+                  onPressed: (){},
+                  color: kLightBrown,
+                  child:  TextWidget(name: 'Try',
+                    textColor: kWhiteColor,
+                    textSize: kFontSize,
+                    textWeight: FontWeight.bold,),
+                )
+              ],
+            )
+                : SimpleDialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              elevation: 4,
+
+              children: <Widget>[
+
+                Image.asset('assets/imagesFolder/no-wifi.jpg',height: 100,width: 100,),
+                SizedBox(height: 20.h,),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: kHorizontal),
+                  child: TextWidgetAlign(name: kNoInternet,
+                    textColor: kTextColor,
+                    textSize: kFontSize,
+                    textWeight: FontWeight.w500,),
+
+
+
+                ),
+
+                SizedBox(height: 20.h,),
+                Container(
+                    alignment: Alignment.center,
+                    child: RaisedButton(
+                      onPressed: (){},
+                      color: kLightBrown,
+                      child:  TextWidget(name: 'Try',
+                        textColor: kWhiteColor,
+                        textSize: kFontSize,
+                        textWeight: FontWeight.bold,),
+                    )
+                )
+              ],
+            )
+
+
+        );
+          });
+      }
+    }});
+  }
+
   checkLocation() async {
     //Position position = await Geolocator().getLastKnownPosition();
 
@@ -98,31 +187,28 @@ bool progress = false;
       _permissionGranted = await location.requestPermission();
 
     }
-      if (_permissionGranted == PermissionStatus.granted) {
-        VariablesOne.getLocation(context: context);
-       // getLocation();
-        /*if(currentUser == null){
+    if (_permissionGranted == PermissionStatus.granted) {
+      VariablesOne.getLocation(context: context);
+      // getLocation();
+      /*if(currentUser == null){
           Navigator.of(context).pushReplacement
             (MaterialPageRoute(builder: (context) => LoginScreen()));
         }else{
-
-
           Navigator.of(context).pushReplacement
             (MaterialPageRoute(builder: (context) => HomeScreenSecond()));
         }*/
 
-      }
+    }
 
 
     _locationData = await location.getLocation();
 
     Variables.vendorLocation = _locationData;
 
-   /* if(currentUser == null){
+    /* if(currentUser == null){
       Navigator.of(context).pushReplacement
         (MaterialPageRoute(builder: (context) => LoginScreen()));
     }else{
-
       Navigator.of(context).pushReplacement
         (MaterialPageRoute(builder: (context) => HomeScreenSecond()));
     }*/
@@ -147,106 +233,9 @@ bool progress = false;
   }
 
 
-  Future<void> checkData() async {
 
-    listener = DataConnectionChecker().onStatusChange.listen((status) {
-      switch (status) {
-        case DataConnectionStatus.connected:
-          internetStatus = "Connectd TO THe Internet";
-           if(VariablesOne.firstEntering){
-            Navigator.pop(context);
-
-           }else{
-             checkLocation();
-
-           }
-
-          break;
-        case DataConnectionStatus.disconnected:
-          internetStatus = "No Data Connection";
-          setState(() {
-            showDialog(
-                barrierDismissible: false,
-                context: context,
-                builder:(context) => Platform.isIOS ?
-                CupertinoAlertDialog(
-                  content:  Container(
-                    margin: EdgeInsets.symmetric(horizontal: kHorizontal),
-                    child: TextWidgetAlign(name: kNoInternet,
-                      textColor: kTextColor,
-                      textSize: kFontSize,
-                      textWeight: FontWeight.w500,),
-
-                  ),
-
-                  actions: <Widget>[
-                    CupertinoButton(
-                      onPressed: (){},
-                      color: kLightBrown,
-                      child:  TextWidget(name: 'Try',
-                        textColor: kWhiteColor,
-                        textSize: kFontSize,
-                        textWeight: FontWeight.bold,),
-                    )
-                  ],
-                )
-                    : SimpleDialog(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  elevation: 4,
-
-                  children: <Widget>[
-
-                   Image.asset('assets/imagesFolder/no-wifi.jpg',height: 100,width: 100,),
-                    SizedBox(height: 20.h,),
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: kHorizontal),
-                      child: TextWidgetAlign(name: kNoInternet,
-                        textColor: kTextColor,
-                        textSize: kFontSize,
-                        textWeight: FontWeight.w500,),
-
-
-
-                    ),
-
-                    SizedBox(height: 20.h,),
-                    Container(
-                        alignment: Alignment.center,
-                        child: RaisedButton(
-                          onPressed: (){_checkInternet();},
-                          color: kLightBrown,
-                          child:  TextWidget(name: 'Try',
-                            textColor: kWhiteColor,
-                            textSize: kFontSize,
-                            textWeight: FontWeight.bold,),
-                        )
-                    )
-                  ],
-                )
-
-            );
-          });
-          break;
-      }
-    });
-
-    // close listener after 30 seconds, so the program doesn't run forever
-//    await Future.delayed(Duration(seconds: 30));
-//    await listener.cancel();
-   // return  await DataConnectionChecker().connectionStatus;
-  }
-
-  Future<void> _checkInternet() async {
-    bool checkCon = await DataConnectionChecker().hasConnection;
-    if(checkCon == true){
-
-      checkLocation();
-
-    }
 
   }
 
 
-}
+

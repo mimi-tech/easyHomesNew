@@ -40,7 +40,7 @@ class _VerifyPartnersState extends State<VerifyPartners> {
     return PinPut(
 
       autofocus: true,
-      validator: Variables.validatePin,
+      //validator: Variables.validatePin,
       obscureText: '*',
       fieldsCount: 6,
       eachFieldHeight: 20,

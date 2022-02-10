@@ -1,4 +1,4 @@
-// @dart = 2.9
+
 import 'package:easy_homes/admins/admin_constants.dart';
 import 'package:easy_homes/admins/partners/register_buisness_first.dart';
 import 'package:easy_homes/admins/partners/register_business.dart';
@@ -10,8 +10,8 @@ import 'package:easy_homes/strings/strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:geocoder/geocoder.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:geoflutterfire/geoflutterfire.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_place_picker/google_maps_place_picker.dart';
@@ -21,7 +21,7 @@ class BusinessLocationService extends StatefulWidget {
 }
 
 class _BusinessLocationServiceState extends State<BusinessLocationService> {
-    PickResult selectedPlace;
+    PickResult? selectedPlace;
   static final kInitialPosition = LatLng(-33.8567844, 151.213108);
   bool progress = false;
   @override
@@ -46,7 +46,7 @@ class _BusinessLocationServiceState extends State<BusinessLocationService> {
 
                 },
               ),
-              selectedPlace == null ? Container() : Text(selectedPlace.formattedAddress ?? ""),
+              selectedPlace == null ? Container() : Text(selectedPlace!.formattedAddress ?? ""),
             ],
           ),
         ));
@@ -72,23 +72,25 @@ class _BusinessLocationServiceState extends State<BusinessLocationService> {
               try{
                /* List<Placemark> newPlace = await placemarkFromAddress(selectedPlace.formattedAddress);
                 Placemark placeMark = newPlace[0];*/
-                List<Location> locations = await locationFromAddress(selectedPlace.formattedAddress);
+                List<Location> locations = await locationFromAddress(selectedPlace!.formattedAddress.toString());
                 Location placeMark = locations[0];
                 final coordinates = new Coordinates(placeMark.latitude, placeMark.longitude);
-               var addresses = await Geocoder.local.findAddressesFromCoordinates(coordinates);
+                List<Placemark> addresses = await placemarkFromCoordinates(placeMark.latitude, placeMark.longitude);
+
+                //var addresses = await Geocoder.local.findAddressesFromCoordinates(coordinates);
                 var first = addresses.first;
 
                 // this is all you need
 
                 String name = first.toString();
-                String subLocality = first.subLocality;
-                String locality = first.locality;//Owerri
-                String administrativeArea = first.adminArea;//Imo
-                String postalCode= first.postalCode;
-                String country = first.countryName;//country
-                String hdh= first.subThoroughfare;//no
-                String ns = first.thoroughfare;//egbu Road
-                Coordinates position = first.coordinates;
+                String? subLocality = first.subLocality;
+                String? locality = first.locality;//Owerri
+                String? administrativeArea = first.administrativeArea;//Imo
+                String? postalCode= first.postalCode;
+                String? country = first.country;//country
+                String? hdh= first.subThoroughfare;//no
+                String? ns = first.thoroughfare;//egbu Road
+                Coordinates position = coordinates;
 
                 String address = "$name $subLocality $ns $hdh $locality $administrativeArea state, $country";
 
@@ -97,7 +99,7 @@ class _BusinessLocationServiceState extends State<BusinessLocationService> {
                 setState(() {
                   AdminConstants.businessPosition = position;
 
-                  AdminConstants.businessLocation = selectedPlace.formattedAddress;
+                  AdminConstants.businessLocation = selectedPlace!.formattedAddress!;
                   AdminConstants.businessSubLocation = ns;
                   Variables.locality = locality;
                   Variables.administrative = administrativeArea;

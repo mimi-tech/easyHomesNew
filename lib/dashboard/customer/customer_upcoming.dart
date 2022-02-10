@@ -15,7 +15,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:easy_homes/utils/progressHudFunction.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:readmore/readmore.dart';
 class CustomerUpcomingBookings extends StatefulWidget {
@@ -56,7 +56,7 @@ late DocumentSnapshot document;
             textSize: kFontSize,
             textWeight: FontWeight.bold,),
         ),
-        body: ModalProgressHUD(
+        body: ProgressHUDFunction(
       inAsyncCall: _publishModal,
       child: SingleChildScrollView(
           child: Column(
